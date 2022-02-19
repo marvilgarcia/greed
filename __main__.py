@@ -56,14 +56,16 @@ def main():
     with open(DATA_PATH) as file:
         data = file.read()
         messages = data.splitlines()
+
     seq = [42,111] # gets the ascii characters for * and o
     for n in range(DEFAULT_ARTIFACTS):
         #text = chr(random.randint(33, 126)) # getting the ascii characters to put on the screen.
         text = chr(random.choice(seq))
         message = messages[n] 
 
-        x = random.randint(1, COLS - 1)
-        y = random.randint(1, ROWS - 1)
+        # need to change to make it so the characters will be at the top. 
+        x = random.randint(1, COLS - 1) 
+        y = 0 # will make the gems and rocks start from the bottom. 
         position = Point(x, y)
         position = position.scale(CELL_SIZE) # scales the pixel to the appropriate size.
 
