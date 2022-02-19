@@ -24,7 +24,7 @@ ROWS = 40
 CAPTION = "Robot Finds Kitten"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 40
+DEFAULT_ARTIFACTS = 40 # number of characters on the screen
 
 
 def main():
@@ -56,15 +56,16 @@ def main():
     with open(DATA_PATH) as file:
         data = file.read()
         messages = data.splitlines()
-
+    seq = [42,111] # gets the ascii characters for * and o
     for n in range(DEFAULT_ARTIFACTS):
-        text = chr(random.randint(33, 126))
-        message = messages[n]
+        #text = chr(random.randint(33, 126)) # getting the ascii characters to put on the screen.
+        text = chr(random.choice(seq))
+        message = messages[n] 
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
-        position = position.scale(CELL_SIZE)
+        position = position.scale(CELL_SIZE) # scales the pixel to the appropriate size.
 
         r = random.randint(0, 255)
         g = random.randint(0, 255)
@@ -72,7 +73,7 @@ def main():
         color = Color(r, g, b)
         
         artifact = Artifact()
-        artifact.set_text("O")
+        artifact.set_text(text)
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
         artifact.set_position(position)
