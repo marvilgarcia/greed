@@ -56,7 +56,9 @@ class Director:
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
         
+        # becuase it is a list it has to loop through.
         for artifact in artifacts:
+            artifact.move_next(max_x, max_y) # this updates it on the game so it goes from top to bottom.
             if robot.get_position().equals(artifact.get_position()):
                 message = artifact.get_message()
                 banner.set_text(message)    

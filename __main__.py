@@ -1,5 +1,6 @@
 import os
 import random
+from tkinter.tix import MAX
 
 from game.casting.actor import Actor
 from game.casting.artifact import Artifact
@@ -65,7 +66,7 @@ def main():
 
         # need to change to make it so the characters will be at the top. 
         x = random.randint(1, COLS - 1) 
-        y = 0 # will make the gems and rocks start from the bottom. 
+        y = 2 # will make the gems and rocks start from the bottom. 
         position = Point(x, y)
         position = position.scale(CELL_SIZE) # scales the pixel to the appropriate size.
 
@@ -74,11 +75,19 @@ def main():
         b = random.randint(0, 255)
         color = Color(r, g, b)
         
+        # creating the velocity
+        x_v = 0 
+        y_v = 2
+        velocity = Point(x_v, y_v)
+
         artifact = Artifact()
         artifact.set_text(text)
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
         artifact.set_position(position)
+        # changes the velocity
+        artifact._velocity = velocity # changes to 0,2
+        artifact.move_next(MAX_X, MAX_Y) #makes the velocity work or switches it on. Move next from actor class
         artifact.set_message(message)
         cast.add_actor("artifacts", artifact)
     
