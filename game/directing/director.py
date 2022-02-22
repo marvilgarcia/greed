@@ -50,8 +50,11 @@ class Director:
         banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
-
-        banner.set_text("")
+        
+        self._total_score = 0
+        banner.set_text(f'Score: {self._total_score}')  # This will display the score on screen
+        
+        #banner.set_text("") 
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
