@@ -62,7 +62,7 @@ def main():
     for n in range(DEFAULT_ARTIFACTS):
         #text = chr(random.randint(33, 126)) # getting the ascii characters to put on the screen.
         text = random.choice(["*", "o"])
-        message = [n] 
+        message = [n] # Got rid of messsages an just kept [n]
 
         # need to change to make it so the characters will be at the top. 
         x = random.randint(1, COLS - 1) 
