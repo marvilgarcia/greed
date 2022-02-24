@@ -43,7 +43,7 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2 )
-    y = int(MAX_X / -50)
+    y = int(MAX_X / -40)
     position = Point(x, y)
 
     robot = Actor()
@@ -77,7 +77,7 @@ def main():
         
         # creating the velocity
         x_v = 0
-        y_v = random.randrange(1,10)
+        y_v = random.randrange(1,5)
         velocity = Point(x_v, y_v)
 
         artifact = Artifact()

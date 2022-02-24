@@ -74,10 +74,9 @@ class Director:
                 #self._total_score = artifact.set_total_score()
                 #banner.set_text(f'Score: {self._total_score}') #shows score
                 banner.set_text(str(f'Score: {self._total_score}'))
+                cast.remove_actor('artifacts', artifact)
 
-                #message = artifact.get_message() # Tutor and I got rid of this
-                #banner.set_text(message)  # this is the same as line 56 so we can remove this line  
-                
+
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
         
