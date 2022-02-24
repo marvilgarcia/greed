@@ -12,7 +12,14 @@ class Artifact(Actor):
     """
     def __init__(self):
         super().__init__()
-        self._message = ""
+        self._message = 0
+        self._total_score = 0
+    def get_total_score(self):
+        
+         return self._total_score
+    def set_total_score(self, score):
+        
+        self._total_score = score
         
     def get_message(self):
         """Gets the artifact's message.

@@ -54,15 +54,15 @@ def main():
     cast.add_actor("robots", robot)
     
     # create the artifacts
-    with open(DATA_PATH) as file:
-        data = file.read()
-        messages = data.splitlines()
+    #with open(DATA_PATH) as file:
+        #data = file.read()
+        #messages = ""
 
-    seq = [42,111] # gets the ascii characters for * and o
+    #seq = [42,111] # gets the ascii characters for * and o
     for n in range(DEFAULT_ARTIFACTS):
         #text = chr(random.randint(33, 126)) # getting the ascii characters to put on the screen.
-        text = chr(random.choice(seq))
-        message = messages[n] 
+        text = random.choice(["*", "o"])
+        message = [n] 
 
         # need to change to make it so the characters will be at the top. 
         x = random.randint(1, COLS - 1) 
@@ -76,8 +76,8 @@ def main():
         color = Color(r, g, b)
         
         # creating the velocity
-        x_v = 0 
-        y_v = 2
+        x_v = 0 #random.randrange(1,10) 
+        y_v = random.randrange(0,10)
         velocity = Point(x_v, y_v)
 
         artifact = Artifact()
